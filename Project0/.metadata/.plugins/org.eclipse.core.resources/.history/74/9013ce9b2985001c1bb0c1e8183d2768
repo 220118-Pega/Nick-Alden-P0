@@ -1,0 +1,32 @@
+package com.revature.project0.models;
+
+/**
+ * This is a class used to model coding issues
+ * @author nicka
+ *
+ */
+public class Issue {
+// The class: the template
+	// The members: fields/attributes, methods, constructors
+	
+// Fields:
+	// used to define characteristics of a class
+	// used to define dependencies of the class
+	
+	private String title;
+	private String description;
+	private int id;
+	
+// Constructors:
+	// special methods that are used to initialize properties of a class
+	// if you don't put in a constructor, that's fine, a default constructor will be created for you
+	// No Args Constructor
+	public Issue() {
+		
+	}
+	// Parameterized Constructor:
+	public Issue (String title, String description) {
+		this.title = title;
+		this.description = description;
+	}
+}
