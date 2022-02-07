@@ -4,6 +4,7 @@ package com.revature.project0;
 
 
 import com.revature.project0.models.Request;
+import com.revature.project0.models.Status;
 import com.revature.project0.storage.RequestDAO;
 
 import io.javalin.Javalin;
@@ -20,5 +21,6 @@ public class HelloWorld {
     	Request requestById = requestDAO.getRequestById(id);
     	ctx.jsonStream(requestById);
     });
+    requestDAO.addRequest(new Request(0, "office supplies", (float) 14.99, Status.Pending));
   }
 }

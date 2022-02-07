@@ -53,4 +53,18 @@ public class RequestDAO {
 			e.printStackTrace();
 		} return null;
 	}
+	
+	public void addRequest(Request newRequest) {
+		try(Connection conn = ConnectionFactory.getInstance().getConnection()) {
+			String query = "insert into requests (reason, amount, type) values (?,?,CAST(? as Status))";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, newRequest.getReason());
+			pstmt.setFloat(2, newRequest.getAmount());
+			pstmt.setString(3, newRequest.getType().toString());
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
