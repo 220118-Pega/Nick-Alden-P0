@@ -1,23 +1,26 @@
 package com.revature.project0.models;
 
+// create the main class the actual reimbursement request
+// properties of the reimbursement requests
 public class Request {
 	private int id;
 	private String  reason;
-	private int amount;
-	private Request request;
+	private float amount;
+	private Status type;
 	
-	public Request(int id, String reason, int amount, Request request) {
+	
+	public Request(int id, String reason, float amount, Status type) {
 		super();
 		this.id = id;
 		this.reason = reason;
 		this.amount = amount;
-		this.request = request;
+		this.type = type;
 	}
 	
 	public Request() {
 		
 	}
-
+// getters and setters 
 	public int getId() {
 		return id;
 	}
@@ -30,20 +33,25 @@ public class Request {
 		this.reason = reason;
 	}
 
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 
-	public Request getRequest() {
-		return request;
+	public Status getType() {
+		return type;
 	}
 
-	public void setRequest(Request request) {
-		this.request = request;
+	public void setType(Status type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Request [id=" + id + ", reason=" + reason + ", amount=" + amount + ", type=" + type + "]";
 	}
 	
 	
