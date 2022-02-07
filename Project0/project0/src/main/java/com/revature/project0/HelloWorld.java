@@ -21,6 +21,6 @@ public class HelloWorld {
     	Request requestById = requestDAO.getRequestById(id);
     	ctx.jsonStream(requestById);
     });
-    requestDAO.addRequest(new Request(0, "office supplies", (float) 14.99, Status.Pending));
+    app.post("/requests", ctx -> requestDAO.addRequest(ctx.bodyStreamAsClass(Request.class)));
   }
 }
