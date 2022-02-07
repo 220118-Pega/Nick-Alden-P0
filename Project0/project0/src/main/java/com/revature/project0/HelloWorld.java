@@ -1,6 +1,8 @@
 
 package com.revature.project0;
 
+
+
 import com.revature.project0.models.Request;
 import com.revature.project0.storage.RequestDAO;
 
@@ -8,13 +10,15 @@ import io.javalin.Javalin;
 
 public class HelloWorld {
   public static void main(String[] args) {
-//    Javalin app = Javalin.create().start(7000);
-//    app.get("/", ctx -> ctx.result("Hello World"));
-    
-    RequestDAO requestDAO = new RequestDAO();
-    for(Request request:requestDAO.getAllRequests())
-    {
-    	System.out.println(request);
-    }
+	RequestDAO requestDAO = new RequestDAO();
+    Javalin app = Javalin.create().start(7000);
+    app.get("/", ctx -> ctx.result("Hello World"));
+    app.get("/requests", ctx -> ctx.jsonStream(requestDAO.getAllRequests()));
+    app.get("/requests/{request_id}", ctx -> {
+    	String stringId = ctx.pathParam("request_id");
+    	int id = Integer.parseInt(stringId);
+    	Request requestById = requestDAO.getRequestById(id);
+    	ctx.jsonStream(requestById);
+    });
   }
 }

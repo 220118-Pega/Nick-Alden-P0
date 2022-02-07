@@ -34,4 +34,23 @@ public class RequestDAO {
 		}
 		return allRequests;
 	}
+	public Request getRequestById(int id) {
+		try(Connection conn = ConnectionFactory.getInstance().getConnection()) {
+			String query = "Select * from requests where id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return new Request(
+						rs.getInt("id"),
+						rs.getString("reason"),
+						rs.getFloat("amount"),
+						Status.valueOf(rs.getString("type"))
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} return null;
+	}
 }
