@@ -13,7 +13,7 @@ public class HelloWorld {
   public static void main(String[] args) {
 	RequestDAO requestDAO = new RequestDAO();
     Javalin app = Javalin.create().start(7000);
-    app.get("/", ctx -> ctx.result("Hello World"));
+    app.get("/", ctx -> ctx.result("Welcome to the Reimbursement API"));
     app.get("/requests", ctx -> ctx.jsonStream(requestDAO.getAllRequests()));
     app.get("/requests/{request_id}", ctx -> {
     	String stringId = ctx.pathParam("request_id");
