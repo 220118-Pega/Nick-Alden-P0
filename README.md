@@ -1,5 +1,7 @@
-# Nick-Alden-P0
+# Nick-Alden
 
 About Me
 
-Former teacher, coach and athletic director in Houston, TX and currently located in San Antonio, TX. Brand new to the tech world and extremely excited to learn!
+Detail-oriented and results-driven Data Analyst passionate about leveraging data insights and visualizations to drive informed business decisions. 
+Pursuing an opportunity to gain experience and showcase a growing set of corresponding skills. 
+Demonstrates a high aptitude for quickly mastering new technologies and methodologies to optimize business operations.
